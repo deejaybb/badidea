@@ -17,16 +17,17 @@
 		  {{#each things}}
         {{> thing}}
       {{/each}}
-      
-			
-			<div class="swallow">
-				<button type="button">Swallow</button>
-			</div>
 		</div>
-
-    <div id="genie-target-wrapper">
-        <div id="genie-target" style="width: 530px; height: 622px;" class="genie collapse change-pace"></div>
-    </div>
+		
+		<div class="swallow">
+			<button class="swallow-btn" type="button">Swallow</button>
+			
+			<script type="text/javascript">
+  		  $('button.swallow-btn').on('click',function(){
+          $('.middle').addClass('giene');
+        });
+  		</script>
+		</div>
     
 		<div class="bottom">
 			{{> counter}}

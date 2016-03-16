@@ -81,7 +81,7 @@ html {
     margin-top: 30vh;
     margin-left: auto;
     margin-right: auto;
-    height: 50%;
+    height: 65vh;
     width: 60%;
     /*background-color: white;*/
     color: black;
@@ -97,8 +97,11 @@ html {
     z-index: -9999;*/
 }
 
-input.swallow {
-
+.swallow {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    z-index: 99;
 }
 
 
