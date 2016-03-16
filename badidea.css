@@ -5,6 +5,14 @@ html, body {
   background-color: white;
 }
 
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .container {
   /*background-color: red;*/
 }
@@ -19,10 +27,17 @@ html, body {
   width: 100%;
 }
 
-input[type="text"] {
-  position: absolute;
+.top form {
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+.top form .input {
   top: 0;
-  right: left;
+  float: left;
   margin: 0;
   width: 50%;
   appearance: none;
@@ -38,10 +53,9 @@ input[type="text"] {
 
 }
 
-.submit button[type="button"] {
-  position: absolute;
+.top form .submit {
   top: 0;
-  right: 0;
+  float: left;
   margin: 0;
   width: 50%;
   appearance: none;
@@ -62,23 +76,11 @@ input[type="text"] {
 
 /*MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE*/
 
-.outermiddle {
-    display: table;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    /*border: 10px solid magenta;*/
-}
 
-.middlemiddle {
-    display: table-cell;
-    vertical-align: middle;
-    /*border: 10px solid magenta;*/
-}
-
-.innermiddle {
+.middle {
+    margin-top: 30vh;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     height: 50%;
     width: 60%;
     /*background-color: white;*/
@@ -95,7 +97,7 @@ input[type="text"] {
     z-index: -9999;*/
 }
 
-.swallow button[type="button"] {
+input.swallow {
 
 }
 
@@ -125,17 +127,23 @@ input[type="text"] {
 .ghosttrap a:hover {color: white; text-decoration: none;}
 .ghosttrap a:active {color: white; text-decoration: none;}
 
-.send {
+.send,
+.release {
   background-color: black;
   border: 1px solid white;
   height: 50%;
 }
 
-.release {
-  border: 1px solid white;
-  height: 50%;
-  background-color: black;
+.send a, 
+.release a {
+    display: block;
+    width: 100;
+    /*height: 100%;*/
+    text-align: center;
+    padding-top: 10%;
 }
+
+
 
 .counter{
   background-color: white;

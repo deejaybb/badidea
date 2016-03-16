@@ -3,26 +3,17 @@
 </head>
 
 <body>
-  <h1></h1>
-
  <!--For each thing return (>) the thing you put in -->
  <!--Get data from the database-->
  <!--templating language called handlebars-->
  
-  
-  
-  
-
-  
-  	<div class="container">
+  <div class="container">
 		<div class="top">
 		    {{> new}}
 		</div>
 
 
-		<div class="outermiddle">
-		<div class="middlemiddle">
-		<div class="innermiddle">
+		<div class="middle">
 		  {{#each things}}
         {{> thing}}
       {{/each}}
@@ -32,11 +23,11 @@
 				<button type="button">Swallow</button>
 			</div>
 		</div>
-		</div>
-		</div>
 
-
-
+    <div id="genie-target-wrapper">
+        <div id="genie-target" style="width: 530px; height: 622px;" class="genie collapse change-pace"></div>
+    </div>
+    
 		<div class="bottom">
 			{{> counter}}
 
@@ -51,8 +42,6 @@
 			</div>
 		</div>
 	</div>
-  
-  
   
 </body> 
 
