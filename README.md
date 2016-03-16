@@ -1,5 +1,4 @@
 
-   
     $ meteor --port $IP:$PORT
     
 Networks and Transactions 02-25-16
@@ -16,8 +15,10 @@ Networks and Transactions 02-25-16
         git remote add origin https://github.com/deejaybb/badidea.git
         git status
         git add -A
-        git commit -m "Initial Commit"
+        git commit -m "Initial Commit or put whatever your commiting here"
         git push 
+
+Repeat the last 4 commands everytime you add a feature or fix a bug. 
 
 
 Change the remote URL based on what it says in your GitHub repository

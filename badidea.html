@@ -1,14 +1,94 @@
 <head>
-  <title>badidea</title>
+  <title>Ghost Trap</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1></h1>
 
-  {{> hello}}
-</body>
+ <!--For each thing return (>) the thing you put in -->
+ <!--Get data from the database-->
+ <!--templating language called handlebars-->
+ 
+  
+  
+  
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+  
+  	<div class="container">
+		<div class="top">
+		    {{> new}}
+		</div>
+
+
+		<div class="outermiddle">
+		<div class="middlemiddle">
+		<div class="innermiddle">
+		  {{#each things}}
+        {{> thing}}
+      {{/each}}
+      
+			
+			<div class="swallow">
+				<button type="button">Swallow</button>
+			</div>
+		</div>
+		</div>
+		</div>
+
+
+
+		<div class="bottom">
+			{{> counter}}
+
+			<div class="ghosttrap">
+				<div class="send">
+					<a href="url">send</a>
+				</div>
+
+				<div class="release">
+					<a href="url">release</a>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+  
+  
+</body> 
+
+
+
+
+<template name="thing">
+  <div class="a-thing">
+      
+      <div class="description">
+          {{description}} 
+      </div>
+    
+  </div>
 </template>
+
+
+
+<template name="counter">
+  <div class="counter">
+    {{thingscount}}
+  </div>
+</template>
+
+
+
+<template name="new">
+  <div class="a-form">
+    <form>
+      <input class="input" type="text" name="description" placeholder="Is this is a bad idea?">
+			<input class="submit" type="submit" value="Submit">
+    </form>
+  </div>
+</template>
+
+
+
+
+

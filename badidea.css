@@ -1,1 +1,156 @@
-/* CSS declarations go here */
+html, body {
+  margin: 0;
+  padding: 0;
+  /*background-color: gray;*/
+  background-color: white;
+}
+
+.container {
+  /*background-color: red;*/
+}
+
+/* TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP */
+
+.top {
+  background-color: yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+input[type="text"] {
+  position: absolute;
+  top: 0;
+  right: left;
+  margin: 0;
+  width: 50%;
+  appearance: none;
+  /*box-shadow: none;*/
+  /*box-shadow: 0px 11px 30px white;*/
+  border-radius: none;
+  height: 50px;
+  padding: 10px;
+  border: solid 1px black;
+  transition: box-shadow 0.3s, border 0.3s;
+  font-family: serif;
+  font-size: 1.5em;
+
+}
+
+.submit button[type="button"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 50%;
+  appearance: none;
+  /*box-shadow: none;*/
+  /*box-shadow: 0px 11px 30px white;*/
+  border-radius: none;
+  height: 50px;
+  padding: 10px;
+  border: solid 1px black;
+  transition: box-shadow 0.3s, border 0.3s;
+  background-color: black;
+  color: white;
+  font-family: serif;
+  font-size: 1.5em;
+}
+
+
+
+/*MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE*/
+
+.outermiddle {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*border: 10px solid magenta;*/
+}
+
+.middlemiddle {
+    display: table-cell;
+    vertical-align: middle;
+    /*border: 10px solid magenta;*/
+}
+
+.innermiddle {
+    margin-left: auto;
+    margin-right: auto; 
+    height: 50%;
+    width: 60%;
+    /*background-color: white;*/
+    color: black;
+    font-size: 4em;
+    text-align: justify;
+    -moz-text-align-last: justify;
+    text-align-last: justify;
+    /*-webkit-filter: blur(150px);
+    -moz-filter: blur(150px);
+    -o-filter: blur(150px);
+    -ms-filter: blur(150px);
+    filter: blur(150px);
+    z-index: -9999;*/
+}
+
+.swallow button[type="button"] {
+
+}
+
+
+
+/*BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM*/
+
+.bottom {
+  /*background-color: cyan;*/
+  /*background-color: black;*/
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.ghosttrap {
+  height: 6em;
+  width: 15%;
+  margin-left: 42.5%;
+  background-color: white;
+  text-align: center;
+}
+
+.ghosttrap a:link {color: black; text-decoration: none;}
+.ghosttrap a:visited {color: black; text-decoration: none;}
+.ghosttrap a:hover {color: white; text-decoration: none;}
+.ghosttrap a:active {color: white; text-decoration: none;}
+
+.send {
+  background-color: black;
+  border: 1px solid white;
+  height: 50%;
+}
+
+.release {
+  border: 1px solid white;
+  height: 50%;
+  background-color: black;
+}
+
+.counter{
+  background-color: white;
+  border: 1px solid black;
+  width: 10%;
+  height: 4em;
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+  border-radius: 100px / 50px;
+  text-align: center;
+  margin-left: 35%;
+  margin-top: 1em;
+  position: absolute;
+  /*font-size: 1em;*/
+  line-height: 4em;
+}
+
+
