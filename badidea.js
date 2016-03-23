@@ -63,7 +63,55 @@ if (Meteor.isClient) {
       });
 
       form.description.value = '';
+      
+      // This is for making it automatically trap
+      setTimeout(function(){
+         //move swallow event here
+         $('.swallow-btn').hide();
+        // Point it disappears to
+        var $disappearsTo = $('.swallowTarget');
+        var $container = $('.middle');
+    
+        var buttonHeight = $disappearsTo.height();
+        var buttonWidth = $disappearsTo.width();
+    
+        var buttonOffset = $disappearsTo.offset();
+        var containerOffset = $container.offset();
+        
+        var diffX = containerOffset.left - buttonOffset.left - buttonWidth*0.5;
+        var diffY = containerOffset.top - buttonOffset.top - buttonHeight*0.5;
+        
+        var origin = -diffX + 'px' + -diffY + 'px';
+        
+        
+        var origin = setInterval(function(){
+          buttonOffset = $disappearsTo.offset();
+          containerOffset = $container.offset();
+          
+          diffX = containerOffset.left - buttonOffset.left - buttonWidth*0.5;
+          diffY = containerOffset.top - buttonOffset.top - buttonHeight*0.5;
+          
+          origin = -diffX + 'px' + -diffY + 'px';
 
+          console.log(origin);
+          return origin;
+        }, 50);
+        
+        
+       
+        
+        $disappearsTo.animate({'top': '100%'}, 1000, function(){
+          clearInterval(origin);
+        });
+        
+        
+        $container
+            .css({
+              transformOrigin: origin  
+            })
+            .toggleClass('hidden');
+      }, 2000);
+      // seconds it will take
     }
     
   });
@@ -83,29 +131,7 @@ if (Meteor.isClient) {
   Template.swallow.events({
     "click .swallow-btn": function(event){
         event.preventDefault();
-        $('.swallow-btn').hide();
-        // making hidepoint wherever it needs to be on page
-        var $hidePoint = $('.send');
-        var $container = $('.middle');
-    
-        var buttonHeight = $hidePoint.height();
-        var buttonWidth = $hidePoint.width();
-    
-        var buttonOffset = $hidePoint.offset();
-        var containerOffset = $container.offset();
-        
-        var diffX = containerOffset.left - buttonOffset.left - buttonWidth*0.5;
-        var diffY = containerOffset.top - buttonOffset.top - buttonHeight*0.5;
-        
-        var origin = -diffX + 'px ' + -diffY + 'px';
-        
-        console.log(origin);
-        
-        $container
-            .css({
-              transformOrigin: origin  
-            })
-            .toggleClass('hidden');  
+          
       
     }
   });

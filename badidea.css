@@ -90,6 +90,7 @@ html {
     text-align: justify;
     -moz-text-align-last: justify;
     text-align-last: justify;
+    background-color: yellow;
     /*-webkit-filter: blur(150px);
     -moz-filter: blur(150px);
     -o-filter: blur(150px);
@@ -99,9 +100,18 @@ html {
 
 }
 
+.swallowTarget {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+
 /*does the transform*/
 .hidden {
-    transform: scale(0) perspective(370px) rotateX(45deg);
+    transform: scale(0) perspective(370px) rotateX(-45deg);
     
     -ms-transition: all 5s;
     -webkit-transition: all 5s;
