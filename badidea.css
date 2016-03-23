@@ -83,6 +83,7 @@ html {
     margin-right: auto;
     height: 65vh;
     width: 60%;
+    overflow: hidden;
     /*background-color: white;*/
     color: black;
     font-size: 4em;

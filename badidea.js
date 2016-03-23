@@ -4,16 +4,13 @@ var Things = new Mongo.Collection("things");
 
 //this code executes only on the client
 if (Meteor.isClient) {
+  Template.body.rendered = function(){
+    $('.middle').hide();  
+  };
   
   Template.body.helpers({
-    //the things helper returns a list of things
     things: function() {
-      //find all the things in the database and return them
-  
-      // var numberOfThings = Things.find().count();
-      // console.log(numberOfThings);
-      // console.log(Things.find().fetch());
-  
+      
       return Things.find({}, {sort: {created: -1}, limit: 1}).fetch();
     },
 
@@ -24,12 +21,10 @@ if (Meteor.isClient) {
   //event on a delete link in the "thing" template
     "click .delete": function(event) {
         
-        //tell the broswer not to do its default
-        //which would be reload the page
+        //tell the browser not to reload the page
         event.preventDefault();
         
-        //using the mongo id of this template's object, tell
-        //mongo to remove the object from the database
+        //using the mongo id of this template's object, tell mongo to remove the object from the database
         Things.remove(this._id);
     }
   });
@@ -47,30 +42,44 @@ if (Meteor.isClient) {
   Template.new.events({
     //this is called whenever something is submitted
     "submit": function(event) {
-      //tell the browser not to do its default behavior
-      //which would reload the page
+      //tell the browser not to reload the page by default
       event.preventDefault();
       
-      //Get the form HTML element
-      //by definition its the target of the submit event
+      var contentContainer = $(".middle");
+      contentContainer.show();
+      contentContainer.removeClass('giene');
+      
+      //Get the form HTML element, by definition its the target of the submit event
       var form = event.target;
       
-      // var created_at = new Date();
       
       //insert a thing into the database collection
       Things.insert({
-        title: form.title.value, 
-        description: form.descript.value,
-        category: form.category.value,
+        description: form.description.value,
         created: new Date(),
       });
-      
-      //clear the text field
-      form.title.value = '';
-      form.descript.value = '';
-      form.category.value = '';
+
+      form.description.value = '';
+
     }
     
+  });
+  
+  Template.thing.events({
+     "click .send": function(event) {
+        event.preventDefault();
+    },
+    
+    "click .release": function(event) {
+        event.preventDefault();
+        Things.remove({});
+    }
+  });
+
+  Template.swallow.events({
+    "click .swallow-btn": function(event){
+      $('.middle').addClass('giene');
+    }
   });
 
 }

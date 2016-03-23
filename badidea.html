@@ -19,34 +19,27 @@
       {{/each}}
 		</div>
 		
-		<div class="swallow">
-			<button class="swallow-btn" type="button">Swallow</button>
-			
-			<script type="text/javascript">
-  		  $('button.swallow-btn').on('click',function(){
-          $('.middle').addClass('giene');
-        });
-  		</script>
-		</div>
+		{{> swallow}}
     
 		<div class="bottom">
 			{{> counter}}
 
 			<div class="ghosttrap">
-				<div class="send">
-					<a href="url">send</a>
-				</div>
-
-				<div class="release">
-					<a href="url">release</a>
-				</div>
+				{{> capture }}
 			</div>
+			
 		</div>
+		
 	</div>
   
 </body> 
 
 
+<template name="swallow">
+    <div class="swallow">
+			<button class="swallow-btn" type="button">Swallow</button>
+	</div>
+</template>
 
 
 <template name="thing">
@@ -72,10 +65,21 @@
 <template name="new">
   <div class="a-form">
     <form>
-      <input class="input" type="text" name="description" placeholder="Is this is a bad idea?">
+      <input class="input" type="text" name="description" placeholder="Is this a bad idea?">
 			<input class="submit" type="submit" value="Submit">
     </form>
   </div>
+</template>
+
+
+<template name="capture">
+  <div class="send">
+		<a href="url">send</a>
+	</div>
+
+	<div class="release">
+		<a href="url">release</a>
+	</div>
 </template>
 
 
