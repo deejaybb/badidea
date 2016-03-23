@@ -64,52 +64,35 @@ if (Meteor.isClient) {
 
       form.description.value = '';
       
+      $(".middle").toggleClass('middle-animate');
       // This is for making it automatically trap
+      
+        // Point it disappears to
+      var $disappearsTo = $('.swallowTarget');
+      var $container = $('.middle');
+  
+      var buttonHeight = $disappearsTo.height();
+      var buttonWidth = $disappearsTo.width();
+  
+      var buttonOffset = $disappearsTo.offset();
+      var containerOffset = $container.offset();
+      
+      var diffX = containerOffset.left - buttonOffset.left - buttonWidth*0.5;
+      // var diffY = containerOffset.top - buttonOffset.top - buttonHeight*0.5;
+      var diffY = buttonOffset.top;
+      
+      var origin = -diffX + 'px' + -diffY + 'px';
+      console.log(origin);
+      console.log(buttonOffset);
+      console.log(containerOffset);
+        
+        
+
+        
       setTimeout(function(){
          //move swallow event here
-         $('.swallow-btn').hide();
-        // Point it disappears to
-        var $disappearsTo = $('.swallowTarget');
-        var $container = $('.middle');
-    
-        var buttonHeight = $disappearsTo.height();
-        var buttonWidth = $disappearsTo.width();
-    
-        var buttonOffset = $disappearsTo.offset();
-        var containerOffset = $container.offset();
-        
-        var diffX = containerOffset.left - buttonOffset.left - buttonWidth*0.5;
-        var diffY = containerOffset.top - buttonOffset.top - buttonHeight*0.5;
-        
-        var origin = -diffX + 'px' + -diffY + 'px';
-        
-        
-        var origin = setInterval(function(){
-          buttonOffset = $disappearsTo.offset();
-          containerOffset = $container.offset();
-          
-          diffX = containerOffset.left - buttonOffset.left - buttonWidth*0.5;
-          diffY = containerOffset.top - buttonOffset.top - buttonHeight*0.5;
-          
-          origin = -diffX + 'px' + -diffY + 'px';
-
-          console.log(origin);
-          return origin;
-        }, 50);
-        
-        
-       
-        
-        $disappearsTo.animate({'top': '100%'}, 1000, function(){
-          clearInterval(origin);
-        });
-        
-        
-        $container
-            .css({
-              transformOrigin: origin  
-            })
-            .toggleClass('hidden');
+        $('.swallow-btn').hide();
+        $container.toggleClass('hidden');
       }, 2000);
       // seconds it will take
     }
