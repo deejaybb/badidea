@@ -96,7 +96,18 @@ html {
     -ms-filter: blur(150px);
     filter: blur(150px);
     z-index: -9999;*/
+
 }
+
+/*does the transform*/
+.hidden {
+    transform: scale(0) perspective(370px) rotateX(45deg);
+    
+    -ms-transition: all 5s;
+    -webkit-transition: all 5s;
+    -moz-transition: all 5s;
+    transition: all 5s;  
+  }
 
 .swallow {
     position: absolute;

@@ -6,6 +6,7 @@ var Things = new Mongo.Collection("things");
 if (Meteor.isClient) {
   Template.body.rendered = function(){
     $('.middle').hide();  
+    $('.swallow-btn').hide(); 
   };
   
   Template.body.helpers({
@@ -44,10 +45,12 @@ if (Meteor.isClient) {
     "submit": function(event) {
       //tell the browser not to reload the page by default
       event.preventDefault();
+      $('.swallow-btn').show();
       
       var contentContainer = $(".middle");
       contentContainer.show();
-      contentContainer.removeClass('giene');
+      // contentContainer.removeClass('giene');
+      contentContainer.removeClass('hidden');
       
       //Get the form HTML element, by definition its the target of the submit event
       var form = event.target;
@@ -76,9 +79,34 @@ if (Meteor.isClient) {
     }
   });
 
+
   Template.swallow.events({
     "click .swallow-btn": function(event){
-      $('.middle').addClass('giene');
+        event.preventDefault();
+        $('.swallow-btn').hide();
+        // making hidepoint wherever it needs to be on page
+        var $hidePoint = $('.send');
+        var $container = $('.middle');
+    
+        var buttonHeight = $hidePoint.height();
+        var buttonWidth = $hidePoint.width();
+    
+        var buttonOffset = $hidePoint.offset();
+        var containerOffset = $container.offset();
+        
+        var diffX = containerOffset.left - buttonOffset.left - buttonWidth*0.5;
+        var diffY = containerOffset.top - buttonOffset.top - buttonHeight*0.5;
+        
+        var origin = -diffX + 'px ' + -diffY + 'px';
+        
+        console.log(origin);
+        
+        $container
+            .css({
+              transformOrigin: origin  
+            })
+            .toggleClass('hidden');  
+      
     }
   });
 
