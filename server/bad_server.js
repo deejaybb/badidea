@@ -7,7 +7,7 @@ Meteor.startup(() => {
   Meteor.Mailgun.config({
       username: 'postmaster@sandboxdec8208b643e438e9561fa21f42ac5bd.mailgun.org',
       password: '791c0a9cb05928b979c0bd2db31a2bff',
-      port: '2525'
+      port: '587'
     });
 });
 
