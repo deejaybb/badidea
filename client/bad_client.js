@@ -21,11 +21,11 @@ if (Meteor.isClient) {
   // TODO: Only show things belonging to Meteor.user()
   Template.body.helpers({
     newthings: function() {
-      return Things.find({}, {sort: {created: -1}, limit: 1}).fetch();
+      return Things.find({user: Meteor.user()}, {sort: {created: -1}, limit: 1}).fetch();
     },
 
     allthings: function() {
-      return Things.find({}, {sort: {created: -1}}).fetch();
+      return Things.find({user: Meteor.user()}, {sort: {created: -1}}).fetch();
     },
 
   });
@@ -49,11 +49,11 @@ if (Meteor.isClient) {
 
   Template.counter.helpers({
     thingscount: function() {
-      return Things.find().count();
+      return Things.find({user: Meteor.user()}).count();
     },
     counterSize: function() {
       // counter enlargment
-      var count = Things.find().count();
+      var count = Things.find({user: Meteor.user()}).count();
 
       var counterWidth = 50 + (count*3);
       var counterHeight = counterWidth;
@@ -138,7 +138,7 @@ if (Meteor.isClient) {
         });
 
         // TODO: Limit to things belonging to Meteor.user()
-        var things = Things.find().fetch();
+        var things = Things.find({user: Meteor.user()}).fetch();
 
         setTimeout(function(){
           $.each(things, function(i, thing) {

@@ -26,15 +26,15 @@ Meteor.methods({
         console.log("Emailing", id, "to", to);
         this.unblock();
 
-        // console.log("about to send email..." + to + thing.description);
+        console.log("about to send email..." + to + thing.description);
 
-        // Meteor.Mailgun.send({
-        //     to: to,
-        //     from: 'postmaster@sandboxdec8208b643e438e9561fa21f42ac5bd.mailgun.org',
-        //     subject: thing.description,
-        //     text: "Bad idea?",
-        //     html: "Bad idea?"
-        // });
+        Meteor.Mailgun.send({
+            to: to,
+            from: 'coombs.l@gmail.com',
+            subject: thing.description,
+            text: "Bad idea?",
+            html: "Bad idea?"
+        });
 
         // Email.send({
         //     to: to,
@@ -44,12 +44,13 @@ Meteor.methods({
         //     html: ''
         // });
 
-        // console.log("email sent!");
+        Things.remove(id);
+
+        console.log("email sent!");
       }
       else {
         console.log("Couldn't find thing or email", id, thing);
       }
 
-      // Things.remove(id);
   }
 });
