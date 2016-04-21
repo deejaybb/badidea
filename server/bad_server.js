@@ -5,9 +5,9 @@ var Things = new Mongo.Collection("things");
 Meteor.startup(() => {
   // code to run on server at startup
   Meteor.Mailgun.config({
-      username: 'postmaster@sandboxdec8208b643e438e9561fa21f42ac5bd.mailgun.org',
-      password: '791c0a9cb05928b979c0bd2db31a2bff',
-      port: '587'
+      username: process.env.MAILGUN_SMTP_LOGIN,
+      password: process.env.MAILGUN_SMTP_PASSWORD,
+      port: process.env.MAILGUN_SMTP_PORT
     });
 });
 
