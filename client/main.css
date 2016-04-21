@@ -211,9 +211,9 @@ html {
 }
 
 .release-one {
-    transform-origin: bottom center;
-    -webkit-animation: releaseThings 5s normal ease-in-out;
-    animation: releaseOne 5s normal ease-in-out;
+  transform-origin: bottom center;
+  -webkit-animation: releaseThings 5s normal ease-in-out;
+  animation: releaseOne 5s normal ease-in-out;
 }
 
 /*border-bottom: 100px solid red;*/
@@ -250,9 +250,9 @@ html {
   background-color: yellow;
   border: 1px solid yellow;
   /*max-width: 800px;*/
-  /*max-height: 800px;*/
-  /*width: 10%;*/
-  /*height: 3em;*/
+   /*max-height: 800px;*/
+   /*width: 10%;*/
+   /*height: 3em;*/
   top: 80%;
   left: 30%;
   /*margin-left: 30%;*/
@@ -261,19 +261,19 @@ html {
   font-size: 2.5em;
   line-height: 2.5em;
   width:  200px;
-	height: 200px;
-	-moz-border-radius: 50px;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
+  height: 200px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
 
   -webkit-animation-name: Floatingx;
-    -webkit-animation-duration: 5s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: ease-in-out;
-    -moz-animation-name: Floating;
-    -moz-animation-duration: 5s;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-name: Floating;
+  -moz-animation-duration: 5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: ease-in-out;
 }
 
 @-webkit-keyframes Floatingx{
