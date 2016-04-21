@@ -1,0 +1,297 @@
+/* CSS declarations go here */
+html, body {
+  margin: 0;
+  padding: 0;
+  /*background-color: gray;*/
+  background-color: white;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.container {
+  /*background-color: red;*/
+}
+
+/* TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP */
+
+.top {
+  /*background-color: yellow;*/
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+}
+
+.top form {
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+.top form .input {
+  top: 0;
+  float: left;
+  margin: 0;
+  width: 50%;
+  appearance: none;
+  border-radius: none;
+  height: 80px;
+  padding: 10px;
+  border: solid 1px black;
+  transition: box-shadow 0.3s, border 0.3s;
+  font-family: serif;
+  font-size: 2.5em;
+  /*move input from side to side*/
+  -webkit-animation: diagonal-slide 25s infinite;
+  animation: diagonal-slide 25s infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  position: relative;
+}
+
+@-webkit-keyframes diagonal-slide {
+  0% {left: 0;top: 0px; }
+  50% {left: 48%;top: 0px;}
+  100% {left: 0;top: 0px;}
+}
+
+@keyframes diagonal-slide {
+  0% {left: 0;top: 0px;}
+  50% {left: 48%;top: 0px;}
+  100% {left: 0;top: 0px;}
+}
+
+/*.top form .submit {*/
+/*  top: 0;*/
+/*  float: left;*/
+/*  margin: 0;*/
+/*  width: 50%;*/
+/*  appearance: none;*/
+/*  border-radius: none;*/
+/*  height: 50px;*/
+/*  padding: 10px;*/
+/*  border: solid 1px black;*/
+/*  transition: box-shadow 0.3s, border 0.3s;*/
+/*  background-color: black;*/
+/*  color: white;*/
+/*  font-family: serif;*/
+/*  font-size: 1.5em;*/
+/*}*/
+
+
+
+/*MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE*/
+
+
+.middle {
+    margin-top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: 65vh;
+    width: 60%;
+    overflow: hidden;
+    /*background-color: white;*/
+    color: black;
+    font-size: 4em;
+    text-align: justify;
+    -moz-text-align-last: justify;
+    text-align-last: justify;
+    background-color: yellow;
+    /*-webkit-filter: blur(150px);
+    -moz-filter: blur(150px);
+    -o-filter: blur(150px);
+    -ms-filter: blur(150px);
+    filter: blur(150px);
+    z-index: -9999;*/
+
+   /* width:  100px;*/
+	  /*height: 100px;*/
+	-moz-border-radius: 800px;
+	-webkit-border-radius: 800px;
+	border-radius: 800px;
+}
+
+/*.swallowTarget {*/
+/*  position: fixed;*/
+/*  bottom: 0px;*/
+/*  left: 50%;*/
+/*  width: 50px;*/
+/*  height: 50px;*/
+/*  background-color: red;*/
+/*}*/
+
+.middle-animate {
+    -ms-transition: all 5s;
+    -webkit-transition: all 5s;
+    -moz-transition: all 5s;
+    transition: all 5s;
+}
+
+/*does the transform, makes perspective shape*/
+.hidden {
+    transform: scale(0) perspective(370px) rotateX(-45deg);
+    transform-origin: bottom center;
+  }
+
+.swallow {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    z-index: 99;
+}
+
+
+
+/*BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM*/
+
+.bottom {
+  /*background-color: cyan;*/
+  /*background-color: black;*/
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.ghosttrap {
+  height: 6em;
+  width: 15%;
+  margin-left: 42.5%;
+  background-color: white;
+  text-align: center;
+  /*position: fixed;*/
+}
+
+.ghosttrap a:link {color: black; text-decoration: none;}
+.ghosttrap a:visited {color: black; text-decoration: none;}
+.ghosttrap a:hover {color: white; text-decoration: none;}
+.ghosttrap a:active {color: white; text-decoration: none;}
+
+.release {
+  background-color: black;
+  height: 100%;
+}
+
+.release a {
+    display: block;
+    width: 100;
+    font-size: 2.5em;
+    /*height: 100%;*/
+    text-align: center;
+    padding-top: 10%;
+}
+
+.all-things {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -999;
+}
+
+/*@-webkit-keyframes releaseThings {*/
+/*}*/
+
+.all-things .a-thing {
+  width: 1px;
+  height: 1px;
+  top: 105%;
+  left: 50%;
+  position: absolute;
+  margin: 2px auto;
+  background: cyan;
+}
+
+.release-one {
+    transform-origin: bottom center;
+    -webkit-animation: releaseThings 5s normal ease-in-out;
+    animation: releaseOne 5s normal ease-in-out;
+}
+
+/*border-bottom: 100px solid red;*/
+/*border-left: 50px solid transparent;*/
+/*border-right: 50px solid transparent;*/
+/*height: 0;*/
+/*width: 100px;*/
+
+
+@keyframes releaseOne {
+    0% {
+        top:105%;
+        height: 0px;
+        width: 0px;
+        transform: scale(0) perspective(300px) rotateX(0deg);
+        perspective-origin: 50% 100%;
+
+    }
+    35% {
+        transform: scale(5) perspective(150px) rotateX(-45deg);
+    }
+    100% {
+        top: -150%;
+        height: 400px;
+        width: 400px;
+        transform: scale(5) perspective(20px) rotateX(-45deg);
+        perspective-origin: 50% 500%;
+    }
+}
+
+
+/*COUNTER  COUNTER  COUNTER  COUNTER  COUNTER  COUNTER  COUNTER*/
+.counter{
+  background-color: yellow;
+  border: 1px solid yellow;
+  /*max-width: 800px;*/
+  /*max-height: 800px;*/
+  /*width: 10%;*/
+  /*height: 3em;*/
+  top: 80%;
+  left: 30%;
+  /*margin-left: 30%;*/
+  /*margin-top: 80%;*/
+  position: absolute;
+  font-size: 2.5em;
+  line-height: 2.5em;
+  width:  200px;
+	height: 200px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+
+  -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 50px);}
+    to {-webkit-transform: translate(0, -0px);    }
+}
+
+@-moz-keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 50px);}
+    to {-moz-transform: translate(0, -0px);}
+}
+
+.counter .counter-text {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+}

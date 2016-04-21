@@ -1,0 +1,103 @@
+<head>
+  <title></title>
+</head>
+
+<body>
+
+  <div class="container">
+
+  	{{> loginButtons}}
+
+		<div class="top">
+		    {{> new}}
+		    <audio id="sucking" preload="true">
+		        <source src="/audio/sucking.mp3" type="audio/mp3">
+		  	</audio>
+		</div>
+
+		<div class="middle">
+		  {{#each newthings}}
+          	{{> newthing}}
+          {{/each}}
+		</div>
+
+		<!--<div class="swallowTarget"></div>-->
+
+		{{> swallow}}
+
+		<div class="bottom">
+			<div class="ghosttrap">
+				{{> capture }}
+			</div>
+		</div>
+
+	</div>
+
+	{{> counter}}
+
+	<div class="all-things">
+		{{#each allthings}}
+  			{{> things}}
+ 	 	{{/each}}
+	</div>
+
+</body>
+
+
+<template name="swallow">
+    <div class="swallow">
+			<button class="swallow-btn" type="button">Swallow</button>
+	</div>
+</template>
+
+<template name="newthing">
+  <div class="a-new-thing">
+      <div class="description">
+          {{description}}
+      </div>
+  </div>
+</template>
+
+<template name="things">
+  <div class="a-thing" id={{_id}}>
+      <div class="description">
+          {{description}}
+      </div>
+  </div>
+</template>
+
+<template name="counter">
+	{{counterSize}}
+  	<div class="counter">
+   		<div class="counter-text">
+   			{{thingscount}}
+   		</div>
+  </div>
+</template>
+
+<template name="new">
+  <div class="a-form">
+    <form>
+      <input class="input" type="text" name="description" placeholder="Is this a bad idea?">
+			<!--<input class="submit" type="submit" value="Submit">-->
+    </form>
+  </div>
+</template>
+
+<template name="capture">
+ <!-- <div class="send">-->
+	<!--	<a href="url">send</a>-->
+	<!--</div>-->
+
+	<div class="release">
+		<a href="url">Release</a>
+		<audio id="releasing" preload="true">
+		        <source src="/audio/release.mp3" type="audio/mp3">
+		</audio>
+	</div>
+</template>
+
+
+
+
+
