@@ -6,7 +6,10 @@ html, body {
   background-color: white;
 }
 
-/* apply a natural box layout model to all elements, but allowing components to change */
+.flasher{
+  background: black;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -69,64 +72,26 @@ html {
   100% {left: 0;top: 0px;}
 }
 
-/*.top form .submit {*/
-/*  top: 0;*/
-/*  float: left;*/
-/*  margin: 0;*/
-/*  width: 50%;*/
-/*  appearance: none;*/
-/*  border-radius: none;*/
-/*  height: 50px;*/
-/*  padding: 10px;*/
-/*  border: solid 1px black;*/
-/*  transition: box-shadow 0.3s, border 0.3s;*/
-/*  background-color: black;*/
-/*  color: white;*/
-/*  font-family: serif;*/
-/*  font-size: 1.5em;*/
-/*}*/
-
-
-
 /*MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE*/
 
-
 .middle {
-    margin-top: 30vh;
-    margin-left: auto;
-    margin-right: auto;
-    height: 65vh;
-    width: 60%;
-    overflow: hidden;
-    /*background-color: white;*/
-    color: black;
-    font-size: 4em;
-    text-align: justify;
-    -moz-text-align-last: justify;
-    text-align-last: justify;
-    background-color: yellow;
-    /*-webkit-filter: blur(150px);
-    -moz-filter: blur(150px);
-    -o-filter: blur(150px);
-    -ms-filter: blur(150px);
-    filter: blur(150px);
-    z-index: -9999;*/
-
-   /* width:  100px;*/
-	  /*height: 100px;*/
-	-moz-border-radius: 800px;
-	-webkit-border-radius: 800px;
-	border-radius: 800px;
+  display:none;
+  margin-top: 30vh;
+  margin-left: auto;
+  margin-right: auto;
+  height: 65vh;
+  width: 60%;
+  overflow: hidden;
+  color: black;
+  font-size: 4em;
+  text-align: justify;
+  -moz-text-align-last: justify;
+  text-align-last: justify;
+  background-color: white;
+  outline: 1px solid black;
+  padding: 10px;
+  /*transform:skewX(30deg);*/
 }
-
-/*.swallowTarget {*/
-/*  position: fixed;*/
-/*  bottom: 0px;*/
-/*  left: 50%;*/
-/*  width: 50px;*/
-/*  height: 50px;*/
-/*  background-color: red;*/
-/*}*/
 
 .middle-animate {
     -ms-transition: all 5s;
@@ -146,6 +111,7 @@ html {
     top: 50px;
     left: 50%;
     z-index: 99;
+    display: none;
 }
 
 
@@ -181,12 +147,12 @@ html {
 }
 
 .release a {
-    display: block;
-    width: 100;
-    font-size: 2.5em;
-    /*height: 100%;*/
-    text-align: center;
-    padding-top: 10%;
+  display: block;
+  width: 100;
+  font-size: 2.5em;
+  /*height: 100%;*/
+  text-align: center;
+  padding-top: 10%;
 }
 
 .all-things {
@@ -195,7 +161,11 @@ html {
   position: absolute;
   top: 0;
   z-index: -999;
+  display: none;
+  /*background: transparent;*/
 }
+
+/*RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE*/
 
 /*@-webkit-keyframes releaseThings {*/
 /*}*/
@@ -207,7 +177,9 @@ html {
   left: 50%;
   position: absolute;
   margin: 2px auto;
-  background: cyan;
+  /*background: cyan;*/
+  background: white;
+   outline: 1px solid black;
 }
 
 .release-one {
@@ -247,24 +219,22 @@ html {
 
 /*COUNTER  COUNTER  COUNTER  COUNTER  COUNTER  COUNTER  COUNTER*/
 .counter{
-  background-color: yellow;
-  border: 1px solid yellow;
-  /*max-width: 800px;*/
-   /*max-height: 800px;*/
-   /*width: 10%;*/
-   /*height: 3em;*/
+  background-color: white;
+  border: 1px solid black;
   top: 80%;
   left: 30%;
-  /*margin-left: 30%;*/
-  /*margin-top: 80%;*/
   position: absolute;
   font-size: 2.5em;
   line-height: 2.5em;
-  width:  200px;
-  height: 200px;
+  width:  100px;
+  height: 100px;
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
+  /*max-width: 800px;*/
+  /*max-height: 800px;*/
+  /*width: 10%;*/
+  /*height: 3em;*/
 
   -webkit-animation-name: Floatingx;
   -webkit-animation-duration: 5s;
@@ -293,5 +263,14 @@ html {
   height: 100%;
   margin: auto;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: bottom;
+  /*line-height: 0;*/
+  /*min-width: 50px;*/
+  /*min-height: 50px;*/
+  /*box-shadow: -10px -10px rgba(0,0,0,0.6);*/
+  /*-moz-box-shadow: -10px -10px rgba(0,0,0,0.6);*/
+  /*-webkit-box-shadow: -10px -10px rgba(0,0,0,0.6);*/
+  /*-o-box-shadow: -10px -10px rgba(0,0,0,0.6);*/
+  /*border-radius:50px;*/
 }
+

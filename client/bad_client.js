@@ -18,7 +18,6 @@ if (Meteor.isClient) {
   };
 
   // TODO: Just show a blank screen (except the login form) if !Meteor.user()
-  // TODO: Only show things belonging to Meteor.user()
   Template.body.helpers({
     newthings: function() {
       return Things.find({user: Meteor.user()}, {sort: {created: -1}, limit: 1}).fetch();
@@ -137,7 +136,6 @@ if (Meteor.isClient) {
           }, speed * (i+1));
         });
 
-        // TODO: Limit to things belonging to Meteor.user()
         var things = Things.find({user: Meteor.user()}).fetch();
 
         setTimeout(function(){

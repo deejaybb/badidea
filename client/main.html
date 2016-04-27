@@ -2,11 +2,13 @@
   <title></title>
 </head>
 
-<body>
+<body class="flash">
 
-  <div class="container">
+  {{> loginButtons}}
 
-  	{{> loginButtons}}
+  {{#if currentUser}}
+
+  	<div class="container">
 
 		<div class="top">
 		    {{> new}}
@@ -40,6 +42,8 @@
   			{{> things}}
  	 	{{/each}}
 	</div>
+
+  {{/if}}
 
 </body>
 
