@@ -1,9 +1,22 @@
+* {
+  background-color: transparent;
+}
+
 /* CSS declarations go here */
 html, body {
   margin: 0;
   padding: 0;
   /*background-color: gray;*/
-  background-color: white;
+  /*background-color: white;*/
+}
+
+.flash {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .flasher{
@@ -18,13 +31,13 @@ html {
 }
 
 .container {
-  /*background-color: red;*/
+  background-color: transparent;
 }
 
 /* TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP  TOP */
 
 .top {
-  /*background-color: yellow;*/
+  background-color: transparent;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -37,6 +50,8 @@ html {
     margin: 0;
     width: 100%;
     height: auto;
+    box-shadow: none;
+    z-index: 1;
 }
 
 .top form .input {
@@ -58,6 +73,7 @@ html {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   position: relative;
+  background-color: white;
 }
 
 @-webkit-keyframes diagonal-slide {
@@ -72,25 +88,29 @@ html {
   100% {left: 0;top: 0px;}
 }
 
-/*MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE*/
+.top form .input:focus {
+  outline: none;
+}
 
+/*MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE MIDDLE*/
 .middle {
   display:none;
   margin-top: 30vh;
   margin-left: auto;
   margin-right: auto;
-  height: 65vh;
+  height: 60vh;
   width: 60%;
   overflow: hidden;
   color: black;
-  font-size: 4em;
+  font-size: 6em;
   text-align: justify;
   -moz-text-align-last: justify;
   text-align-last: justify;
   background-color: white;
   outline: 1px solid black;
-  padding: 10px;
-  /*transform:skewX(30deg);*/
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 1000;
 }
 
 .middle-animate {
@@ -100,7 +120,18 @@ html {
     transition: all 5s;
 }
 
-/*does the transform, makes perspective shape*/
+.middle p {
+  -webkit-transform: skew(45deg) !important;
+  -moz-transform: skew(45deg) !important;
+  -o-transform: skew(45deg) !important;
+  transform: skew(45deg) !important;
+  margin-top: -10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+/*PERSPECTIVE SHAPE 1 on swallow*/
 .hidden {
     transform: scale(0) perspective(370px) rotateX(-45deg);
     transform-origin: bottom center;
@@ -117,10 +148,7 @@ html {
 
 
 /*BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM BOTTOM*/
-
 .bottom {
-  /*background-color: cyan;*/
-  /*background-color: black;*/
   position: fixed;
   bottom: 0px;
   left: 0px;
@@ -132,14 +160,31 @@ html {
   width: 15%;
   margin-left: 42.5%;
   background-color: white;
-  text-align: center;
-  /*position: fixed;*/
+  text-align: left;
 }
 
 .ghosttrap a:link {color: black; text-decoration: none;}
 .ghosttrap a:visited {color: black; text-decoration: none;}
-.ghosttrap a:hover {color: white; text-decoration: none;}
-.ghosttrap a:active {color: white; text-decoration: none;}
+
+.ghosttrap a:active {
+  letter-spacing: 2px;
+  color: white;
+  text-decoration: none;
+  -webkit-transform: skew(-45deg) !important;
+  -moz-transform: skew(-45deg) !important;
+  -o-transform: skew(-45deg) !important;
+  transform: skew(-45deg) !important;
+}
+
+.ghosttrap a:hover {
+  letter-spacing: 2px;
+  color: white;
+  text-decoration: none;
+  -webkit-transform: skew(45deg) !important;
+  -moz-transform: skew(45deg) !important;
+  -o-transform: skew(45deg) !important;
+  transform: skew(45deg) !important;
+}
 
 .release {
   background-color: black;
@@ -150,9 +195,9 @@ html {
   display: block;
   width: 100;
   font-size: 2.5em;
-  /*height: 100%;*/
   text-align: center;
   padding-top: 10%;
+  letter-spacing: 2px;
 }
 
 .all-things {
@@ -160,16 +205,12 @@ html {
   height: 100%;
   position: absolute;
   top: 0;
-  z-index: -999;
+  z-index: 10;
   display: none;
   /*background: transparent;*/
 }
 
 /*RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE RELEASE*/
-
-/*@-webkit-keyframes releaseThings {*/
-/*}*/
-
 .all-things .a-thing {
   width: 1px;
   height: 1px;
@@ -179,28 +220,22 @@ html {
   margin: 2px auto;
   /*background: cyan;*/
   background: white;
-   outline: 1px solid black;
+  outline: 1px solid black;
+  z-index: 5;
 }
 
 .release-one {
   transform-origin: bottom center;
-  -webkit-animation: releaseThings 5s normal ease-in-out;
-  animation: releaseOne 5s normal ease-in-out;
+  -webkit-animation: releaseThings 8s normal;
+  animation: releaseOne 8s normal;
 }
-
-/*border-bottom: 100px solid red;*/
-/*border-left: 50px solid transparent;*/
-/*border-right: 50px solid transparent;*/
-/*height: 0;*/
-/*width: 100px;*/
-
 
 @keyframes releaseOne {
     0% {
         top:105%;
         height: 0px;
         width: 0px;
-        transform: scale(0) perspective(300px) rotateX(0deg);
+        transform: scale(0) perspective(370px) rotateX(0deg);
         perspective-origin: 50% 100%;
 
     }
@@ -210,7 +245,7 @@ html {
     100% {
         top: -150%;
         height: 400px;
-        width: 400px;
+        width: 600px;
         transform: scale(5) perspective(20px) rotateX(-45deg);
         perspective-origin: 50% 500%;
     }
@@ -224,17 +259,16 @@ html {
   top: 80%;
   left: 30%;
   position: absolute;
-  font-size: 2.5em;
-  line-height: 2.5em;
   width:  100px;
   height: 100px;
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
-  /*max-width: 800px;*/
-  /*max-height: 800px;*/
-  /*width: 10%;*/
-  /*height: 3em;*/
+  max-width: 800px;
+  max-height: 800px;
+  min-width:  50px;
+  min-height: 50px;
+  z-index: 999;
 
   -webkit-animation-name: Floatingx;
   -webkit-animation-duration: 5s;
@@ -261,16 +295,10 @@ html {
 .counter .counter-text {
   width: 100%;
   height: 100%;
-  margin: auto;
   text-align: center;
-  vertical-align: bottom;
-  /*line-height: 0;*/
-  /*min-width: 50px;*/
-  /*min-height: 50px;*/
-  /*box-shadow: -10px -10px rgba(0,0,0,0.6);*/
-  /*-moz-box-shadow: -10px -10px rgba(0,0,0,0.6);*/
-  /*-webkit-box-shadow: -10px -10px rgba(0,0,0,0.6);*/
-  /*-o-box-shadow: -10px -10px rgba(0,0,0,0.6);*/
-  /*border-radius:50px;*/
+  vertical-align: center;
+  font-size: 50px;
+  padding-top: 20%;
+  /*background-color: red;*/
 }
 

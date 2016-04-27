@@ -16,7 +16,7 @@ Meteor.startup(() => {
 // });
 
 Meteor.methods({
-  // TOOD: Configure outgoing mail server. See thread at https://community.c9.io/t/send-email-from-my-app/1262
+  // TODO: Configure outgoing mail server. See thread at https://community.c9.io/t/send-email-from-my-app/1262
   emailAndDisposeThing: function(id) {
       var thing = Things.findOne({_id: id});
 
@@ -36,15 +36,8 @@ Meteor.methods({
             html: "Bad idea?"
         });
 
-        // Email.send({
-        //     to: to,
-        //     from: 'drippingectoplasm@gmail.com',
-        //     subject: thing.description,
-        //     text: "Bad idea?",
-        //     html: ''
-        // });
 
-        Things.remove(id);
+        // Things.remove(id);
 
         console.log("email sent!");
       }

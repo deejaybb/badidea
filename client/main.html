@@ -2,7 +2,8 @@
   <title></title>
 </head>
 
-<body class="flash">
+<body>
+	<div class="flash">&nbsp;</div>
 
   {{> loginButtons}}
 
@@ -18,9 +19,10 @@
 		</div>
 
 		<div class="middle">
-		  {{#each newthings}}
+		  <p>{{#each newthings}}
           	{{> newthing}}
           {{/each}}
+          </p>
 		</div>
 
 		<!--<div class="swallowTarget"></div>-->
@@ -82,17 +84,12 @@
 <template name="new">
   <div class="a-form">
     <form>
-      <input class="input" type="text" name="description" placeholder="Is this a bad idea?">
-			<!--<input class="submit" type="submit" value="Submit">-->
+      <input class="input" type="text" name="description" placeholder="Is this a bad idea?" autocomplete = "off">
     </form>
   </div>
 </template>
 
 <template name="capture">
- <!-- <div class="send">-->
-	<!--	<a href="url">send</a>-->
-	<!--</div>-->
-
 	<div class="release">
 		<a href="url">Release</a>
 		<audio id="releasing" preload="true">

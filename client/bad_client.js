@@ -11,14 +11,20 @@ var Things = new Mongo.Collection("things");
 if (Meteor.isClient) {
 
   Template.body.rendered = function(){
+    if (typeof jQuery == 'function') {
+      console.log('jj is here');
+    }
+
     $('.middle').hide();
     $('.swallow-btn').hide();
     // $('.all-things').hide();
     // $('.a-thing').hide();
+
   };
 
   // TODO: Just show a blank screen (except the login form) if !Meteor.user()
   Template.body.helpers({
+
     newthings: function() {
       return Things.find({user: Meteor.user()}, {sort: {created: -1}, limit: 1}).fetch();
     },
@@ -73,11 +79,9 @@ if (Meteor.isClient) {
       //tell the browser not to reload the page by default
       event.preventDefault();
       // $('.swallow-btn').show();
-
-      var contentContainer = $(".middle");
-      contentContainer.show();
-      // contentContainer.removeClass('giene');
-      contentContainer.removeClass('hidden');
+      console.log("mommy");
+      $(".middle").show();
+      $(".middle").removeClass('hidden');
 
       //Get the form HTML element, by definition its the target of the submit event
       var form = event.target;
@@ -99,14 +103,23 @@ if (Meteor.isClient) {
 
       $(".middle").toggleClass('middle-animate');
       // This is for making it automatically trap
-      var $container = $('.middle');
+      // var $container = $('.middle');
 
 
 
       setTimeout(function(){
         //move swallow event here
         $('.swallow-btn').hide();
-        $container.toggleClass('hidden');
+        $('.middle').toggleClass('hidden');
+
+        var interval = setInterval(doStuff, 50); // 2000 ms = start after 2sec
+        function doStuff() {
+          $(".flash").toggleClass("flasher");
+          setTimeout(function(){
+            clearInterval(interval)
+            $(".flash").removeClass("flasher");
+          }, 4000);
+        }
       }, 1000);
       // seconds it will take
 
@@ -119,6 +132,8 @@ if (Meteor.isClient) {
     "click .release": function(event) {
         event.preventDefault();
 
+        $('.middle').hide();
+
         var releaseIt = $("#releasing")[0];
         releaseIt.play();
 
@@ -129,24 +144,45 @@ if (Meteor.isClient) {
         // $('.a-thing').addClass('release-one');
 
         $('.a-thing').each(function(i, val){;
-          //bigger number the longer it will take 500 100
-          var speed = Math.floor(Math.random() * 1000) + 500;
+          var releaseRate = 500;
+          var releaseDelay = releaseRate*5;
+          //rate at which they pop out
+          var speed = Math.floor(Math.random() * 1000) + releaseRate;
+
           setTimeout(function(){
+            // show and release animation for each hidden div
             $(val).show().addClass('release-one');
+            $(val).css("z-index", (i*10));
+
+            // after a delay, delete thing from DB
+            setTimeout(function(){
+              thingID = val.id;
+              // console.log(thingID);
+
+              Meteor.call('emailAndDisposeThing', thingID);
+              //rate at which counter number counts down
+              // Things.remove(thing._id);
+
+              // var thing = Things.find({user: Meteor.user(), _id: thingID}).fetch();
+              Things.remove(thingID);
+            }, releaseDelay);
+
           }, speed * (i+1));
         });
 
-        var things = Things.find({user: Meteor.user()}).fetch();
+        // var things = Things.find({user: Meteor.user()}).fetch();
 
         setTimeout(function(){
-          $.each(things, function(i, thing) {
-            setTimeout(function(){
-              Meteor.call('emailAndDisposeThing', thing._id);
-              //rate at which counter number counts down
-              //Add this line to delete the things after releasing
-              // Things.remove(thing._id);
-            }, 300 * (i+1));
-          });
+          var interval = setInterval(flashRelease, 50); // 2000 ms = start after 2sec
+
+          function flashRelease() {
+            var thingsCount = Things.find({user: Meteor.user()}).count();
+            $(".flash").toggleClass("flasher");
+            if (thingsCount == 0) {
+              clearInterval(interval)
+              $(".flash").removeClass("flasher");
+            }
+          }
           //how long it waits before it starts deleting things
         }, 500);
     }
