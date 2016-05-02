@@ -69,7 +69,7 @@ if (Meteor.isClient) {
         'border-radius': (counterWidth*0.5) + "px"
       }
 
-      $('.counter').css(styles);
+      $('.counter').css();
     }
   });
 
